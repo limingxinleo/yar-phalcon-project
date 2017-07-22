@@ -24,6 +24,7 @@ $loader
             'App\Tasks' => $config->application->tasksDir,
             'App\Traits' => $config->application->traitsDir,
             'App\Utils' => $config->application->utilsDir,
+            'App\Yar' => APP_PATH . '/yar/',
         ]
     )->registerFiles(
         [

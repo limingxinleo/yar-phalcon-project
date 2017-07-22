@@ -15,4 +15,8 @@ return [
     'error-code' => [
         500 => '服务器错误！',
     ],
+
+    'server' => [
+        'index' => env('YAR_SERVER_DEFAULT_HOST') . '/index',
+    ],
 ];
