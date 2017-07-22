@@ -8,7 +8,7 @@
 // +----------------------------------------------------------------------
 namespace App\Services;
 
-use App\Yar\Client;
+use App\Yar\Service\Client;
 use Phalcon\Config;
 use Phalcon\DI\FactoryDefault;
 

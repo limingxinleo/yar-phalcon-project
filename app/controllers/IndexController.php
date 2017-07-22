@@ -9,6 +9,8 @@
 namespace App\Controllers;
 
 use App\Logics\System;
+use App\Yar\Test;
+use Yar_Server;
 
 class IndexController extends Controller
 {
@@ -19,7 +21,7 @@ class IndexController extends Controller
      */
     public function indexAction()
     {
-        $this->view->version = (new System())->version();
-        return $this->view->render('index', 'index');
+        $service = new Yar_Server(new Test());
+        $service->handle();
     }
 }
