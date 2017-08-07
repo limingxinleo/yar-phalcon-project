@@ -26,7 +26,7 @@ return new Config(
         | This value is version for this project.
         |
         */
-        'version' => '1.9.10',
+        'version' => '1.10.0',
 
         /*
         |--------------------------------------------------------------------------
@@ -261,6 +261,7 @@ return new Config(
                 'session' => App\Services\Session::class,
                 'modelsManager' => App\Services\ModelsManager::class,
                 'client' => App\Services\YarClient::class,
+                'logger' => App\Services\Logger::class,
             ],
             'cli' => [
                 'dispatcher' => App\Services\Cli\Dispatcher::class,
