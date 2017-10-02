@@ -1,0 +1,14 @@
+'config' => App\Core\Services\ConfigService::class, // 系统配置
+'app' => App\Core\Services\App::class, // 自定义配置
+'db' => App\Core\Services\Db::class,
+'modelsMetadata' => App\Core\Services\ModelsMetadata::class,
+'filter' => App\Core\Services\Filter::class,
+'cache' => App\Core\Services\Cache::class,
+'error' => App\Core\Services\Error::class,
+'crypt' => App\Core\Services\Crypt::class,
+'redis' => App\Core\Services\Redis::class,
+'mongo' => App\Core\Services\Mongo::class,
+'cookies' => App\Core\Services\Cookies::class,
+'session' => App\Core\Services\Session::class,
+'modelsManager' => App\Core\Services\ModelsManager::class,
+'logger' => App\Core\Services\Logger::class,

@@ -18,17 +18,15 @@ $loader
             'App\Controllers' => $config->application->controllersDir,
             'App\Jobs' => $config->application->jobsDir,
             'App\Library' => $config->application->libraryDir,
-            'App\Listeners' => $config->application->listenersDir,
             'App\Logics' => $config->application->logicsDir,
             'App\Models' => $config->application->modelsDir,
-            'App\Services' => $config->application->servicesDir,
             'App\Tasks' => $config->application->tasksDir,
-            'App\Traits' => $config->application->traitsDir,
             'App\Utils' => $config->application->utilsDir,
             'App\Yar' => APP_PATH . '/yar/',
+            'App\Core' => $config->application->coreDir,
         ]
     )->registerFiles(
         [
-            'function' => $config->application->libraryDir . 'helper.php',
+            'function' => $config->application->coreDir . 'helper.php',
         ]
     )->register();
