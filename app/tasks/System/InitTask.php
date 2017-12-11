@@ -8,9 +8,10 @@
 // +----------------------------------------------------------------------
 namespace App\Tasks\System;
 
+use Phalcon\Text;
 use Xin\Cli\Color;
-use limx\Support\Str;
 use Phalcon\Cli\Task;
+use Xin\Support\File;
 
 class InitTask extends Task
 {
@@ -50,7 +51,7 @@ class InitTask extends Task
         echo Color::head('仓库初始化') . PHP_EOL;
         foreach ($creatRoot as $i => $v) {
             if (!is_dir($v)) {
-                mkdir($v, 0777, true);
+                File::getInstance()->makeDirectory($v, 0777, true, true);
                 echo Color::colorize(sprintf("  新建%s成功", $i), Color::BG_GREEN) . PHP_EOL;
             }
         }
@@ -86,15 +87,15 @@ class InitTask extends Task
         $res = $val;
         switch ($val) {
             case "--random-base64":
-                $res = base64_encode(Str::random($len));
+                $res = base64_encode(Text::random(Text::RANDOM_ALPHA, $len));
                 break;
 
             case "--random-md5":
-                $res = md5(Str::random($len));
+                $res = md5(Text::random(Text::RANDOM_ALPHA, $len));
                 break;
 
             case "--random":
-                $res = Str::random($len);
+                $res = Text::random(Text::RANDOM_ALPHA, $len);
                 break;
 
             default:

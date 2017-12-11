@@ -1,25 +1,20 @@
 <?php
 // +----------------------------------------------------------------------
-// | Test.php [ WE CAN DO IT JUST THINK IT ]
+// | AuthMiddleware.php [ WE CAN DO IT JUST THINK IT ]
 // +----------------------------------------------------------------------
 // | Copyright (c) 2016-2017 limingxinleo All rights reserved.
 // +----------------------------------------------------------------------
 // | Author: limx <715557344@qq.com> <https://github.com/limingxinleo>
 // +----------------------------------------------------------------------
-namespace Test\App\Logics;
+namespace App\Middleware;
 
-use Phalcon\Text;
-use App\Core\Support\CacheBase;
+use Closure;
+use Xin\Phalcon\Middleware\Middleware;
 
-class Test extends CacheBase
+class AuthMiddleware extends Middleware
 {
-    /**
-     * @desc   获取项目版本号
-     * @author limx
-     * @return mixed
-     */
-    public static function str()
+    public function handle($request, Closure $next)
     {
-        return Text::random(Text::RANDOM_DISTINCT, 5);
+        return $next($request);
     }
 }

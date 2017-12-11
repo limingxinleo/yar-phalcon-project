@@ -8,9 +8,9 @@
 // +----------------------------------------------------------------------
 namespace Test;
 
-use App\Logics\System;
+use App\Core\System;
+use Phalcon\Text;
 use \UnitTestCase;
-use limx\Support\Str;
 
 /**
  * Class UnitTest
@@ -52,7 +52,7 @@ class UnitTest extends UnitTestCase
         $key = 'test-case-cache';
         $data = [
             'time' => time(),
-            'str' => Str::random(12),
+            'str' => Text::random(Text::RANDOM_ALPHA, 12),
         ];
         $lifetime = 3600;
         $cache = di('cache');
@@ -106,7 +106,7 @@ class UnitTest extends UnitTestCase
      */
     public function testVersionCase()
     {
-        $version = (new System())->version();
+        $version = System::getInstance()->version();
         $config = di('config');
         $this->assertEquals($config->version, $version);
     }

@@ -8,10 +8,13 @@
 // +----------------------------------------------------------------------
 namespace App\Core\Event;
 
+use Xin\Phalcon\Logger\Factory;
 use Xin\Phalcon\Logger\Sys;
 use Phalcon\Db\Profiler;
 use Phalcon\Events\Event;
 use Phalcon\Logger;
+use Exception;
+use Xin\Support\File;
 
 class DbListener
 {
@@ -28,12 +31,14 @@ class DbListener
         $config = di('config');
         $dir = $config->application->logDir . date('Ymd');
         if (!is_dir($dir)) {
-            mkdir($dir, 0777, true);
+            File::getInstance()->makeDirectory($dir, 0777, true, true);
         }
 
         $this->_profiler = new Profiler();
 
-        $this->_logger = di('logger')->getLogger('sql', Sys::LOG_ADAPTER_FILE);
+        /** @var Factory $factory */
+        $factory = di('logger');
+        $this->_logger = $factory->getLogger('sql', Sys::LOG_ADAPTER_FILE);
     }
 
     /**
